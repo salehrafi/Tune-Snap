@@ -1,0 +1,6 @@
+# pnpm 11 reads project settings here, not from .npmrc.
+#
+# Windows + Node 24: pnpm's default isolated linker creates junctions whose
+# realpath is not resolved by Node's ESM loader in this environment, which
+# breaks dependency resolution. The hoisted linker is stable and simple.
+nodeLinker: hoisted

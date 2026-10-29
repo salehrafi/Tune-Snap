@@ -1,0 +1,11 @@
+import { defineConfig } from 'vitest/config';
+import { WxtVitest } from 'wxt/testing/vitest-plugin';
+
+export default defineConfig({
+  plugins: [WxtVitest()],
+  test: {
+    include: ['lib/**/*.test.{ts,tsx}', 'entrypoints/**/*.test.{ts,tsx}'],
+    environment: 'node',
+    restoreMocks: true,
+  },
+});

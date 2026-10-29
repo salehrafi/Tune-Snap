@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.npm-cache/
+.pnpm-store/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output and store packages
+.output/
+.wxt/
+dist/
+build/
+stats.html
+*.zip
+*.crx
+*.xpi
+
+# Test and coverage output
+coverage/
+.vitest/
+test-results/
+
+# TypeScript and tool caches
+*.tsbuildinfo
+.eslintcache
+.cache/
+.parcel-cache/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+.env.example
+
+# Editors and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Local agent/tool state
+.claude/
+.codex/
+.cursor/
