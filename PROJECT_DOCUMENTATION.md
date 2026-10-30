@@ -1,4 +1,4 @@
-# Tune Snap — Project Documentation
+# Tune Snap — Documentation
 
 Tune Snap is a Chromium-based browser extension built with Manifest V3 for capturing the song in the
 **current Instagram Reel**, finding it on YouTube, and saving it to a local wishlist. This document

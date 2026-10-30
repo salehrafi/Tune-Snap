@@ -166,6 +166,4 @@ store listing. We encourage you to review the updated policy.
 
 ## 9. Contact
 
-Questions about this policy can be sent to:
-
-**[saleh.rafi.01@gmail.com]**
+Questions about this policy can be sent to: **saleh.rafi.01@gmail.com**
