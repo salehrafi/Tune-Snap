@@ -1,4 +1,4 @@
-# Tune Snap — Documentation
+# Tune Snap Documentation
 
 Tune Snap is a Chromium-based browser extension built with Manifest V3 for capturing the song in the
 **current Instagram Reel**, finding it on YouTube, and saving it to a local wishlist. This document
@@ -187,7 +187,7 @@ The smallest fix keeps the existing engine and adds a lifecycle layer:
 - Async request responses are checked against both the request URL and the active Reel identity.
 - Manual refresh re-reads the page.
 
-### 3.5 Audio fingerprinting — evaluated and not implemented
+### 3.5 Audio fingerprinting: evaluated and not implemented
 
 Audio fingerprinting was considered and rejected for this MVP:
 
@@ -406,9 +406,9 @@ manual click-through is the remaining real-world check.
 
 ## 12. Related files
 
-- [README.md](README.md) — setup, API key, permissions, usage.
-- `lib/adapters/instagram.ts` — Instagram extraction and URL rules.
-- `lib/adapters/index.ts` — Instagram-only adapter registry and detection requests.
-- `lib/detection/` — evidence sources, structured parsing, engine, popup-lifetime watcher.
-- `lib/adapters/layout.ts` — visibility and Reel-context grading.
+- [README.md](README.md): setup, API key, permissions, usage.
+- `lib/adapters/instagram.ts`: Instagram extraction and URL rules.
+- `lib/adapters/index.ts`: Instagram-only adapter registry and detection requests.
+- `lib/detection/`: evidence sources, structured parsing, engine, popup-lifetime watcher.
+- `lib/adapters/layout.ts`: visibility and Reel-context grading.
 

@@ -3,7 +3,7 @@ import { normalizeWhitespace } from '@/lib/utils/text';
 import { MUSIC_GLYPHS } from './glyphs';
 import type { ParsedSongText } from './types';
 
-const LABEL_PREFIX = /^(?:now playing|playing|audio|music|song|sound)\s*[:·•–—-]\s*/i;
+const LABEL_PREFIX = /^(?:now playing|playing|audio|music|song|sound)\s*[:·•–\u2014-]\s*/i;
 const ORIGINAL_AUDIO = /^(?:original (?:audio|sound|song|track)|original)$/i;
 const BY_PATTERN = /^(.{1,120}?)\s+(?:by|from)\s+(.{1,80})$/i;
 
@@ -58,13 +58,13 @@ const DELIMITERS: ReadonlyArray<{ pattern: RegExp; confidence: DetectionConfiden
   { pattern: /·|•/, confidence: 'high' },
   { pattern: /・/, confidence: 'high' },
   { pattern: /\s+\|\s+/, confidence: 'medium' },
-  { pattern: /\s+[–—]\s+/, confidence: 'medium' },
+  { pattern: /\s+[–\u2014]\s+/, confidence: 'medium' },
   { pattern: /\s+-\s+/, confidence: 'medium' },
 ];
 
 function cleanPart(value: string): string {
   return normalizeWhitespace(
-    value.replace(/^[\s\-–—:|•·]+/, '').replace(/[\s\-–—:|•·]+$/, ''),
+    value.replace(/^[\s\-–\u2014:|•·]+/, '').replace(/[\s\-–\u2014:|•·]+$/, ''),
   );
 }
 

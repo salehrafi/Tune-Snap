@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/badge/version-2.0.0-d93309?style=flat-square) ![Manifest](https://img.shields.io/badge/manifest-V3-0a0a0a?style=flat-square)
 
 Tune Snap is a Chromium-based browser extension built with Manifest V3 for saving the song you hear
-in an Instagram Reel, finding it on YouTube, and keeping a local wishlist — without leaving the Reel.
+in an Instagram Reel, finding it on YouTube, and keeping a local wishlist, without leaving the Reel.
 
 It is deliberately small: one popup, one content script, local storage, and a single YouTube
 Data API call. No account, backend, analytics, audio recording, or fingerprinting.
@@ -248,7 +248,7 @@ once. The full weights and thresholds are in
 
 [`lib/adapters/layout.ts`](lib/adapters/layout.ts) grades context instead of hard-rejecting:
 
-1. Find the active `<video>` — visible, largest, most centred, preferably playing.
+1. Find the active `<video>`: visible, largest, most centred, preferably playing.
 2. Hidden, offscreen, zero-sized, or `aria-hidden` elements score zero.
 3. Labels in the active video's nearest container score highest; labels near it, in a visible
    dialog/article/main, or in a shared feed containing several videos score lower.
@@ -260,7 +260,7 @@ current URL. This is what prevents a preloaded Reel's data from replacing the cu
 ### Text normalization and order
 
 Text is normalized (zero-width characters, whitespace, note glyphs, `Audio:` prefixes), then split
-on `·`, `•`, `・`, `|`, `–`, `—`, or `-`. The default is **title first, artist second**. When the
+on `·`, `•`, `・`, `|`, `–` (en dash), em dash (U+2014), or `-`. The default is **title first, artist second**. When the
 first part is a comma-separated artist list and the second is not, the order is inferred as
 artist-first; structured data always wins when available. The swap control remains for ambiguous
 single-artist labels. “Original audio” is surfaced as such rather than turned into a fake song.
@@ -282,7 +282,7 @@ single-artist labels. “Original audio” is surfaced as such rather than turne
 - No authentication is bypassed, and private or restricted pages are not accessed.
 - Audio fingerprinting is not included: there is no free, complete, browser-local song database,
   and the practical recognition services are paid/account-based. Tune Snap does not capture or
-  upload audio. See [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md#35-audio-fingerprinting--evaluated-and-not-implemented).
+  upload audio. See [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md#35-audio-fingerprinting-evaluated-and-not-implemented).
 
 ## Architecture
 

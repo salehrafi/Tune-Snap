@@ -4,7 +4,7 @@
  *
  * Both platforms keep preloaded/previous Reels mounted in the DOM. Without
  * these checks, the first music link in document order can belong to a Reel
- * that is hidden, offscreen, or otherwise not the one the user is watching —
+ * that is hidden, offscreen, or otherwise not the one the user is watching,
  * which is how a stale song used to be reported on every Reel.
  */
 

@@ -106,7 +106,7 @@ export function Options() {
                 value={key}
                 onChange={(event) => setKey(event.target.value)}
                 placeholder={
-                  source === 'build' ? 'Using build-time key — paste to override' : 'AIza…'
+                  source === 'build' ? 'Using build-time key; paste to override' : 'AIza…'
                 }
                 autoComplete="off"
                 spellCheck={false}
@@ -207,7 +207,12 @@ export function Options() {
         </ul>
       </section>
 
-      <footer className="page-footer">Tune Snap v{version} · Manifest V3</footer>
+      <footer className="page-footer">
+        Tune Snap v{version} ·{' '}
+        <a href="https://salehrafi.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Saleh Rafi
+        </a>
+      </footer>
     </main>
   );
 }

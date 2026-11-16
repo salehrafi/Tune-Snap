@@ -197,7 +197,7 @@ export function Capture({
             </div>
             {draft.confidence !== 'high' && (
               <p className="hint">
-                Detected from the page — double-check the spelling if the search looks off.
+                Detected from the page. Double-check the spelling if the search looks off.
               </p>
             )}
           </div>
@@ -280,7 +280,7 @@ export function Capture({
 
         {!apiKey.loading && !apiKey.key && (
           <p className="footer-hint">
-            No API key yet — Play opens YouTube search.{' '}
+            No API key yet. Play opens YouTube search.{' '}
             <button type="button" className="link-button link-button--inline" onClick={onOpenSettings}>
               Add a key
             </button>

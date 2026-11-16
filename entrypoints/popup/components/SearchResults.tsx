@@ -113,7 +113,7 @@ export function SearchResults({
                     {badge && (
                       <span
                         className="badge"
-                        title="Inferred from the channel name — not verified as official"
+                        title="Inferred from the channel name, not verified as official"
                       >
                         {badge}
                       </span>

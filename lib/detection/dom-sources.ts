@@ -28,7 +28,7 @@ export interface DomEvidence {
 }
 
 const MUSIC_WORD = /(?:audio|music|song|sound|track)/i;
-const SEPARATOR = /[·•・|–—-]/;
+const SEPARATOR = /[·•・|–\u2014-]/;
 const AUDIO_ID = /(?:reels?\/audio|audio)\/(\d{5,})/i;
 
 function metaCaption(document: Document): string {

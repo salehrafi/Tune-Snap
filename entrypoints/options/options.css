@@ -1,5 +1,5 @@
 /* ============================================================
- * Tune Snap v2 — settings page
+ * Tune Snap v2: settings page
  * ============================================================ */
 
 .page {
@@ -373,6 +373,17 @@ code {
   letter-spacing: 0.08em;
   text-align: center;
   text-transform: uppercase;
+}
+
+.page-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.page-footer a:hover,
+.page-footer a:focus-visible {
+  color: var(--text, inherit);
 }
 
 /* ---------- Responsive ---------- */

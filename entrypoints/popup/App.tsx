@@ -192,7 +192,7 @@ export function App() {
       } else {
         setNotice({
           kind: 'info',
-          text: 'Pick the closest match — nothing is saved until you add it to the wishlist.',
+          text: 'Pick the closest match. Nothing is saved until you add it to the wishlist.',
         });
       }
     } catch (cause) {
@@ -236,7 +236,7 @@ export function App() {
         setNotice({
           kind: 'info',
           text: result.attachedVideo
-            ? 'Already saved — added the YouTube match.'
+            ? 'Already saved. Added the YouTube match.'
             : 'This song is already in your wishlist.',
         });
       }

@@ -25,7 +25,7 @@ describe('stripDiacritics', () => {
 
 describe('normalizeForMatch', () => {
   it('lowercases, removes punctuation, and normalizes accents', () => {
-    expect(normalizeForMatch('  Beyoncé — Halo!  ')).toBe('beyonce halo');
+    expect(normalizeForMatch('  Beyoncé \u2014 Halo!  ')).toBe('beyonce halo');
   });
 
   it('normalizes ampersands', () => {
@@ -45,6 +45,6 @@ describe('toMatchTokens', () => {
   });
 
   it('returns an empty list for punctuation-only input', () => {
-    expect(toMatchTokens('— !')).toEqual([]);
+    expect(toMatchTokens('\u2014 !')).toEqual([]);
   });
 });
