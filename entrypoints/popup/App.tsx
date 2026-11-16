@@ -154,7 +154,7 @@ export function App() {
       await openUrl(youtubeSearchUrl(query));
       setNotice({
         kind: 'info',
-        text: 'No API key set — opened YouTube search. Add a key in Settings to see results here.',
+        text: 'No API key set, opened YouTube search. Add a key in Settings to see results here.',
       });
       return;
     }
