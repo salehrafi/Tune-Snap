@@ -47,3 +47,30 @@ Thumbs.db
 .claude/
 .codex/
 .cursor/
+
+# Logs and temporary files
+logs/
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*~
+
+# More OS and editor files
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+.Spotlight-V100
+.Trashes
+*.swo
+*.sublime-project
+*.sublime-workspace
+.fleet/
+.history/
+
+# Local scratch and notes
+scratch/
+tmp/
+*.local
+*.local.*
