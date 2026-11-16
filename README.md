@@ -490,10 +490,3 @@ implemented here.
 `.npmrc`, and its default isolated linker on Windows/Node 24 produced junctions that Node's ESM
 loader could not resolve in this environment. The hoisted layout is equivalent for this project.
 `npm install` also works, though the lockfile is pnpm's.
-
-## Icons
-
-`scripts/generate-icons.py` rasterizes `public/icon/{16,32,48,128}.png`: a sharp-edged black tile
-with a red-orange bar and a white note. It is optional (the icons are committed) and expects Pillow
-plus the Windows `seguisym.ttf` font.
-
