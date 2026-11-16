@@ -3,8 +3,9 @@
 Run once with Pillow available:
     python scripts/generate-icons.py
 
-The gradient/note artwork is rasterized at 1024px and downscaled so the small
-sizes stay crisp. Output lands in public/icon/.
+v2 artwork: a sharp-edged ink-black tile with a red-orange signal bar and a
+white note, rasterized at 1024px and downscaled so the small sizes stay crisp.
+Output lands in public/icon/.
 """
 
 from pathlib import Path
@@ -12,50 +13,29 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 SIZE = 1024
-RADIUS = 232
+BAR_HEIGHT = 128
 OUT_DIR = Path(__file__).resolve().parent.parent / "public" / "icon"
 FONT_PATH = Path("C:/Windows/Fonts/seguisym.ttf")
 
-TOP = (124, 77, 255)
-BOTTOM = (255, 77, 141)
-
-
-def lerp(start: tuple[int, int, int], end: tuple[int, int, int], t: float) -> tuple[int, int, int]:
-    return tuple(round(start[i] + (end[i] - start[i]) * t) for i in range(3))  # type: ignore[return-value]
-
-
-def gradient() -> Image.Image:
-    image = Image.new("RGBA", (SIZE, SIZE))
-    pixels = image.load()
-    for y in range(SIZE):
-        color = lerp(TOP, BOTTOM, y / (SIZE - 1))
-        for x in range(SIZE):
-            pixels[x, y] = (*color, 255)
-    return image
+INK = (10, 10, 10, 255)
+SIGNAL = (255, 90, 38, 255)
+PAPER = (255, 255, 255, 255)
 
 
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    background = gradient()
-    mask = Image.new("L", (SIZE, SIZE), 0)
-    ImageDraw.Draw(mask).rounded_rectangle(
-        (0, 0, SIZE - 1, SIZE - 1), radius=RADIUS, fill=255
-    )
-
-    icon = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
-    icon.paste(background, (0, 0), mask)
-
-    font = ImageFont.truetype(str(FONT_PATH), 650)
-    glyph = "\u266b"
+    icon = Image.new("RGBA", (SIZE, SIZE), INK)
     draw = ImageDraw.Draw(icon)
+    draw.rectangle((0, SIZE - BAR_HEIGHT, SIZE - 1, SIZE - 1), fill=SIGNAL)
+
+    font = ImageFont.truetype(str(FONT_PATH), 640)
+    glyph = "\u266b"
     left, top, right, bottom = draw.textbbox((0, 0), glyph, font=font)
     width, height = right - left, bottom - top
-    position = ((SIZE - width) / 2 - left, (SIZE - height) / 2 - top - 12)
-
-    # Soft shadow, then the note itself.
-    draw.text((position[0] + 10, position[1] + 14), glyph, font=font, fill=(40, 10, 60, 60))
-    draw.text(position, glyph, font=font, fill=(255, 255, 255, 255))
+    usable = SIZE - BAR_HEIGHT
+    position = ((SIZE - width) / 2 - left, (usable - height) / 2 - top)
+    draw.text(position, glyph, font=font, fill=PAPER)
 
     for size in (16, 32, 48, 128):
         icon.resize((size, size), Image.LANCZOS).save(OUT_DIR / f"{size}.png")
@@ -64,4 +44,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

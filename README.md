@@ -1,5 +1,7 @@
 # Tune Snap
 
+![Version](https://img.shields.io/badge/version-2.0.0-d93309?style=flat-square) ![Manifest](https://img.shields.io/badge/manifest-V3-0a0a0a?style=flat-square)
+
 Tune Snap is a Chromium-based browser extension built with Manifest V3 for saving the song you hear
 in an Instagram Reel, finding it on YouTube, and keeping a local wishlist — without leaving the Reel.
 
@@ -11,13 +13,33 @@ Data API call. No account, backend, analytics, audio recording, or fingerprintin
   <img src="docs/screenshots/popup-results.png" alt="Tune Snap popup showing YouTube search results" width="380" />
 </p>
 
+## What's new in 2.0
+
+Version 2 is a visual redesign. Every feature, message, and behaviour from 0.1 is unchanged.
+
+- **New look:** black and white with one red-orange accent, sharp edges (no rounded corners), and
+  consistent spacing and type throughout the popup and settings page.
+- **Light and dark themes** that follow the system setting.
+- **Subtle motion:** cards fade in, results and wishlist rows appear one after another, notices slide
+  in, and the active tab has a sliding underline. All of it is switched off when the system asks for
+  reduced motion.
+- **Responsive settings page** that adapts down to phone width. If the popup page is opened in a full
+  tab, it is shown as a centred column.
+- **New toolbar icon** to match: a black square with a red-orange bar and a white note.
+
+<p>
+  <img src="docs/screenshots/popup-wishlist.png" alt="Tune Snap wishlist tab with saved songs" width="380" />
+  <img src="docs/screenshots/popup-dark.png" alt="Tune Snap popup in dark mode" width="380" />
+</p>
+
 ## Status
 
 Verified in this repository:
 
 - `pnpm typecheck`, `pnpm test` (22 files, 212 tests), and `pnpm build` all pass.
-- Popup and options layouts were rendered from the production build with mocked extension APIs
-  (screenshots in this README; thumbnails are placeholders).
+- Popup and options layouts were rendered from the 2.0.0 production build in headless Microsoft Edge
+  with mocked extension APIs and a mocked YouTube response (screenshots in this README; thumbnails
+  are placeholders).
 - Storage, duplicate detection, legacy-data recovery, metadata normalization, adapter parsing,
   active-Reel scoping, YouTube ranking, caching, and API error mapping are covered by unit tests.
 - The **built content-script bundle** was executed in a live public Instagram Reel page through the
@@ -285,7 +307,7 @@ lib/
   utils/                     Text normalization, identity, time, error helpers
   messaging.ts               Typed request/response guards between popup and content script
   wishlist-filter.ts
-assets/theme.css             Shared design tokens
+assets/theme.css             Shared design tokens: colours (light/dark), spacing, type, motion
 test/fakeArea.ts             In-memory StorageArea for tests
 public/icon/                 Generated extension icons
 scripts/generate-icons.py    Optional icon generator (Pillow)
@@ -471,6 +493,7 @@ loader could not resolve in this environment. The hoisted layout is equivalent f
 
 ## Icons
 
-`scripts/generate-icons.py` rasterizes `public/icon/{16,32,48,128}.png`. It is optional (the icons
-are committed) and expects Pillow plus the Windows `seguisym.ttf` font.
+`scripts/generate-icons.py` rasterizes `public/icon/{16,32,48,128}.png`: a sharp-edged black tile
+with a red-orange bar and a white note. It is optional (the icons are committed) and expects Pillow
+plus the Windows `seguisym.ttf` font.
 

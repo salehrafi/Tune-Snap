@@ -305,7 +305,7 @@ export function App() {
         onOpenSettings={() => void openSettings()}
       />
 
-      {notice && <Notice notice={notice} />}
+      {notice && <Notice key={`${notice.kind}:${notice.text}`} notice={notice} />}
 
       <main className="content">
         <div
